@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LO 17‑3 · Fund Types</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap');
+  :root{--navy:#13294B;--navy-dark:#0B1B33;--parchment:#F6F2E9;--parchment-line:#D9CFB8;--ink:#1C2433;--gold:#9C7C38;--gold-bright:#C9A227;--green-stamp:#2F5D3A;--red-stamp:#8C2F2F;--muted:#5B6472;}
+  *{box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--parchment);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.6;}
+  h1,h2,h3,h4{font-family:'Source Serif 4',serif;}
+  .topbar{position:sticky;top:0;z-index:50;background:var(--navy-dark);border-bottom:3px double var(--gold-bright);}
+  .topbar-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:13px 24px;}
+  .brand{color:var(--parchment);font-family:'Source Serif 4',serif;font-weight:700;font-size:1.05rem;text-decoration:none;}
+  .brand span{color:var(--gold-bright);}
+  .lo-pills{display:flex;gap:6px;flex-wrap:wrap;max-width:1080px;margin:0 auto;padding:0 24px 10px;overflow-x:auto;}
+  .lo-pills a{font-family:'Roboto Mono',monospace;font-size:0.72rem;font-weight:700;color:#9FB0C9;text-decoration:none;border:1px solid rgba(201,162,39,0.25);border-radius:3px;padding:4px 10px;white-space:nowrap;transition:border-color .15s,color .15s;}
+  .lo-pills a:hover,.lo-pills a.active{border-color:var(--gold-bright);color:var(--parchment);}
+  .page-hero{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 100%);border-bottom:5px solid var(--gold-bright);padding:52px 24px 44px;position:relative;overflow:hidden;}
+  .page-hero::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(transparent,transparent 36px,rgba(255,255,255,0.03) 37px);pointer-events:none;}
+  .page-hero-inner{max-width:840px;margin:0 auto;position:relative;}
+  .eyebrow{display:inline-block;font-family:'Roboto Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-bright);border:1px solid var(--gold);padding:4px 10px;border-radius:2px;margin-bottom:16px;}
+  .page-hero h1{margin:0 0 12px;font-size:clamp(1.7rem,4vw,2.5rem);color:var(--parchment);font-weight:700;line-height:1.1;}
+  .page-hero p.lede{margin:0;font-size:1rem;color:#C7D2E3;max-width:600px;font-style:italic;}
+  main{max-width:840px;margin:0 auto;padding:40px 24px 80px;}
+  .card{background:#fff;border:1px solid var(--parchment-line);border-radius:8px;padding:24px 26px;margin-bottom:22px;box-shadow:0 1px 3px rgba(19,41,75,0.05);}
+  .card h3{margin:0 0 12px;font-size:1.1rem;color:var(--navy);}
+  .card h4{margin:18px 0 8px;font-size:0.95rem;}
+  .card p{margin:0 0 10px;}
+  .card ul{margin:6px 0;padding-left:20px;}
+  .card li{margin-bottom:6px;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0;}
+  @media(max-width:640px){.two-col{grid-template-columns:1fr;}}
+  .col-box{background:var(--parchment);border:1px solid var(--parchment-line);border-radius:6px;padding:16px 18px;}
+  .col-box .col-title{font-family:'Roboto Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);font-weight:700;margin-bottom:8px;}
+  .fund-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px;}
+  @media(max-width:640px){.fund-grid{grid-template-columns:1fr;}}
+  .fund-card{border-radius:8px;padding:18px;color:#fff;}
+  .fund-card h4{color:#fff;margin:0 0 8px;font-family:'Source Serif 4',serif;font-size:1rem;}
+  .fund-card p{font-size:0.85rem;opacity:0.92;margin:0 0 8px;}
+  .fund-card ul{padding-left:18px;font-size:0.85rem;opacity:0.95;margin:0;}
+  .fund-card li{margin-bottom:4px;}
+  .fc-gov{background:#1F4A78;}.fc-prop{background:#2F5D3A;}.fc-fid{background:#6B3F2E;}
+  .ledger-wrap{overflow-x:auto;margin:14px 0;}
+  table.ledger{border-collapse:collapse;width:100%;font-family:'Roboto Mono',monospace;font-size:0.84rem;background:#fff;}
+  table.ledger caption{text-align:left;font-family:'Inter',sans-serif;font-weight:600;font-size:0.82rem;color:var(--muted);margin-bottom:6px;caption-side:top;}
+  table.ledger th,table.ledger td{border-bottom:1px solid var(--parchment-line);padding:7px 12px;text-align:left;}
+  table.ledger th{background:var(--navy);color:var(--parchment);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;font-family:'Inter',sans-serif;font-weight:600;}
+  table.ledger td.amt{text-align:right;white-space:nowrap;}
+  table.ledger tr.credit td:first-child{padding-left:32px;color:var(--muted);}
+  .equation{font-family:'Roboto Mono',monospace;background:var(--ink);color:var(--parchment);border-radius:6px;padding:16px 20px;margin:14px 0;font-size:0.95rem;text-align:center;overflow-x:auto;}
+  .equation .gold{color:var(--gold-bright);}
+  .stat-row{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0;}
+  .stat{flex:1;min-width:130px;background:var(--navy);color:var(--parchment);border-radius:8px;padding:16px;text-align:center;}
+  .stat .num{font-family:'Roboto Mono',monospace;font-size:1.45rem;font-weight:700;color:var(--gold-bright);}
+  .stat .lbl{font-size:0.72rem;color:#C7D2E3;margin-top:4px;}
+  .flow{display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin:14px 0;}
+  .flow-step{background:var(--parchment);border:1px solid var(--gold);border-radius:5px;padding:9px 14px;font-size:0.85rem;font-weight:600;color:var(--navy);}
+  .flow-arrow{color:var(--gold);font-size:1.1rem;padding:0 4px;}
+  .quiz{border:1px solid var(--gold);border-radius:8px;padding:22px 24px;margin:24px 0;background:linear-gradient(180deg,#FDFBF5 0%,#FBF6E9 100%);position:relative;}
+  .quiz::before{content:"PRACTICE QUESTION";position:absolute;top:-11px;left:18px;background:var(--parchment);font-family:'Roboto Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;color:var(--gold);padding:0 8px;font-weight:700;}
+  .quiz p.q{font-weight:600;margin:6px 0 14px;}
+  .quiz .opt{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--parchment-line);border-radius:5px;padding:9px 12px;margin-bottom:7px;cursor:pointer;font-size:0.91rem;font-family:'Inter',sans-serif;color:var(--ink);transition:background .15s,border-color .15s;}
+  .quiz .opt:hover{border-color:var(--gold);background:#FFFDF5;}
+  .quiz .opt.correct{background:#E7F1E9;border-color:var(--green-stamp);font-weight:600;}
+  .quiz .opt.incorrect{background:#F6E7E7;border-color:var(--red-stamp);}
+  .quiz .opt:disabled{cursor:default;}
+  .quiz .reveal-msg{display:none;margin-top:10px;font-size:0.85rem;color:var(--muted);}
+  .quiz .reveal-msg.show{display:block;}
+  .page-nav{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--parchment-line);padding-top:32px;margin-top:48px;gap:12px;}
+  .page-nav a{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:0.9rem;color:var(--navy);text-decoration:none;border:1px solid var(--parchment-line);border-radius:6px;padding:10px 16px;background:#fff;transition:border-color .15s,background .15s;}
+  .page-nav a:hover{border-color:var(--gold);background:#FFFDF5;}
+  .page-nav .spacer{flex:1;}
+  footer{background:var(--navy-dark);color:#9FB0C9;text-align:center;padding:30px 24px;font-size:0.8rem;}
+  footer .gold{color:var(--gold-bright);}
+  ::selection{background:var(--gold-bright);color:var(--navy-dark);}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">The General <span>Fund</span> &mdash; Ch. 17</a>
+  </div>
+  <nav class="lo-pills">
+    <a href="lo1.html">LO 17&#8209;1</a><a href="lo2.html">LO 17&#8209;2</a><a href="lo3.html">LO 17&#8209;3</a><a href="lo4.html">LO 17&#8209;4</a><a href="lo5.html">LO 17&#8209;5</a><a href="lo6.html">LO 17&#8209;6</a><a href="lo7.html">LO 17&#8209;7</a><a href="lo8.html">LO 17&#8209;8</a>
+  </nav>
+</div>
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <span class="eyebrow">Learning Objective 17‑3</span>
+    <h1>Fund Types &amp; Fund Accounting</h1>
+    <p class="lede">Understand what a fund is, why governments use fund accounting, and the differences between the various fund types.</p>
+  </div>
+</header>
+<main>
+
+  <div class="card">
+    <h3>What is a fund?</h3>
+    <p>A <strong>fund</strong> is a self-balancing set of accounts used to record the financial activity associated with a specific purpose or objective. Think of each fund as its own mini-accounting entity — it has its own assets, liabilities, revenues, and expenditures, completely separate from every other fund.</p>
+    <p>Governments use fund accounting because public money is rarely "general purpose." Tax revenue earmarked for road repair cannot legally be spent on police salaries. Grant money designated for a specific program must stay in that program. Fund accounting enforces these restrictions by keeping each pool of money in its own set of books.</p>
+    <p>A few key principles to keep in mind:</p>
+    <ul>
+      <li>Each fund is an <strong>independent fiscal and accounting entity</strong> with its own self-balancing set of accounts.</li>
+      <li>Governments should use the <strong>minimum number of funds</strong> necessary — proliferating funds unnecessarily creates complexity without adding accountability.</li>
+      <li>There can only ever be <strong>one General Fund</strong>, but a government may have multiple special revenue funds, capital projects funds, and so on.</li>
+      <li>Transfers of resources between funds must be <strong>separately recorded and disclosed</strong> — they cannot simply be netted away.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Three categories of governmental activity</h3>
+    <p>All governmental funds fall into one of three categories based on the nature of the activity they account for:</p>
+    <ul>
+      <li><strong>Governmental</strong> &mdash; activities that do not resemble commercial activities. Funded primarily through taxes and intergovernmental revenues rather than user charges.</li>
+      <li><strong>Proprietary</strong> &mdash; activities that <em>do</em> resemble commercial activities; profitability or capital maintenance can be meaningfully measured. Funded primarily through fees charged to users.</li>
+      <li><strong>Fiduciary</strong> &mdash; holding and managing assets that belong to others, such as pension assets or assets held in trust. The government is a steward, not the owner.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>The fund families</h3>
+
+    <div style="border:1px solid #1F4A78;border-radius:8px;overflow:hidden;margin-bottom:14px;">
+      <div style="background:#1F4A78;padding:12px 18px;">
+        <span style="color:#fff;font-family:'Source Serif 4',serif;font-size:1rem;font-weight:700;">Governmental Funds</span>
+        <span style="color:#9FB0C9;font-size:0.82rem;margin-left:10px;">Account for basic public services. Only one General Fund may exist.</span>
+      </div>
+      <div style="padding:14px 18px;background:#fff;">
+        <div class="two-col">
+          <div>
+            <p style="margin:0 0 6px;"><strong>General fund</strong></p>
+            <p style="margin:0;font-size:0.87rem;color:var(--muted);">The primary operating fund; accounts for all activity not required to be in another fund (police, fire, parks, administration).</p>
+          </div>
+          <div>
+            <p style="margin:0 0 6px;"><strong>Special revenue funds</strong></p>
+            <p style="margin:0;font-size:0.87rem;color:var(--muted);">Revenues legally restricted to a specific purpose, such as federal grants or dedicated tax levies.</p>
+          </div>
+        </div>
+        <div class="two-col" style="margin-top:12px;">
+          <div>
+            <p style="margin:0 0 6px;"><strong>Capital projects funds</strong></p>
+            <p style="margin:0;font-size:0.87rem;color:var(--muted);">Financial resources designated for the acquisition or construction of major capital facilities.</p>
+          </div>
+          <div>
+            <p style="margin:0 0 6px;"><strong>Debt service funds</strong></p>
+            <p style="margin:0;font-size:0.87rem;color:var(--muted);">Accumulation of resources for, and the payment of, long-term debt principal and interest.</p>
+          </div>
+        </div>
+        <div style="margin-top:12px;">
+          <p style="margin:0 0 6px;"><strong>Permanent funds</strong></p>
+          <p style="margin:0;font-size:0.87rem;color:var(--muted);">Resources legally restricted so that only earnings &mdash; not principal &mdash; may be used for public purposes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="border:1px solid #2F5D3A;border-radius:8px;overflow:hidden;margin-bottom:14px;">
+      <div style="background:#2F5D3A;padding:12px 18px;">
+        <span style="color:#fff;font-family:'Source Serif 4',serif;font-size:1rem;font-weight:700;">Proprietary Funds</span>
+        <span style="color:#9FB0C9;font-size:0.82rem;margin-left:10px;">Operate like a business; costs recovered through user charges.</span>
+      </div>
+      <div style="padding:14px 18px;background:#fff;">
+        <div class="two-col">
+          <div>
+            <p style="margin:0 0 6px;"><strong>Enterprise fund</strong></p>
+            <p style="margin:0;font-size:0.87rem;color:var(--muted);">Services provided to the general public on a fee basis with the intent to recover costs — municipal utilities, transit systems, golf courses, sports arenas.</p>
+          </div>
+          <div>
+            <p style="margin:0 0 6px;"><strong>Internal service fund</strong></p>
+            <p style="margin:0;font-size:0.87rem;color:var(--muted);">Services provided by one department to other departments within the same government on a cost-reimbursement basis — vehicle pools, print shops, central purchasing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="border:1px solid #6B3F2E;border-radius:8px;overflow:hidden;">
+      <div style="background:#6B3F2E;padding:12px 18px;">
+        <span style="color:#fff;font-family:'Source Serif 4',serif;font-size:1rem;font-weight:700;">Fiduciary Funds</span>
+        <span style="color:#9FB0C9;font-size:0.82rem;margin-left:10px;">Resources held on behalf of others; cannot be used for the government's own operations.</span>
+      </div>
+      <div style="padding:14px 18px;background:#fff;">
+        <div class="two-col">
+          <div>
+            <p style="margin:0 0 6px;"><strong>Pension / employee benefit trust funds</strong></p>
+            <p style="margin:0;font-size:0.87rem;color:var(--muted);">Resources held for members and beneficiaries of defined benefit pension and other post-employment benefit plans.</p>
+          </div>
+          <div>
+            <p style="margin:0 0 6px;"><strong>Investment trust funds</strong></p>
+            <p style="margin:0;font-size:0.87rem;color:var(--muted);">External portions of investment pools operated by the government on behalf of other entities.</p>
+          </div>
+        </div>
+        <div class="two-col" style="margin-top:12px;">
+          <div>
+            <p style="margin:0 0 6px;"><strong>Private-purpose trust funds</strong></p>
+            <p style="margin:0;font-size:0.87rem;color:var(--muted);">All other trust arrangements that benefit individuals, private organizations, or other governments — not the reporting government itself.</p>
+          </div>
+          <div>
+            <p style="margin:0 0 6px;"><strong>Agency funds</strong></p>
+            <p style="margin:0;font-size:0.87rem;color:var(--muted);">Purely custodial — the government collects and remits resources but exercises no discretion over how they are used.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Examples of each fund type in practice</h3>
+    <p>Quick illustrations using Barb City as our example government:</p>
+
+    <h4 style="color:var(--navy);margin-bottom:8px;">Governmental</h4>
+    <ul>
+      <li><strong>General Fund</strong> &mdash; pays for police, fire, parks, and city administration funded by property and sales taxes</li>
+      <li><strong>Special Revenue Fund</strong> &mdash; holds a federal housing grant restricted to low-income housing projects</li>
+      <li><strong>Capital Projects Fund</strong> &mdash; receives bond proceeds earmarked for building a new public library; closed once construction is complete</li>
+      <li><strong>Debt Service Fund</strong> &mdash; accumulates annual transfers to cover principal and interest payments on the library bonds</li>
+      <li><strong>Permanent Fund</strong> &mdash; holds a $500,000 donor endowment; only investment earnings may be spent, and only on library books</li>
+    </ul>
+
+    <h4 style="color:var(--navy);margin-bottom:8px;">Proprietary</h4>
+    <ul>
+      <li><strong>Enterprise Fund</strong> &mdash; accounts for the municipal water and sewer utility, which bills residents monthly to recover operating costs</li>
+      <li><strong>Internal Service Fund</strong> &mdash; runs the city motor pool; departments pay a monthly rate for vehicle access rather than maintaining their own fleets</li>
+    </ul>
+
+    <h4 style="color:var(--navy);margin-bottom:8px;">Fiduciary</h4>
+    <ul>
+      <li><strong>Pension Trust Fund</strong> &mdash; holds employee retirement contributions invested to pay future benefits; assets belong to the employees, not the city</li>
+      <li><strong>Agency Fund</strong> &mdash; the county collects property taxes on behalf of local school districts and remits the proceeds; the county never owns these funds</li>
+    </ul>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <p class="q">Practice Question &mdash; The three major categories of governmental funds are:</p>
+    <button class="opt">a. Governmental, commercial, and proprietary.</button>
+    <button class="opt">b. Governmental, trust, and fiduciary.</button>
+    <button class="opt">c. Governmental, proprietary, and fiduciary.</button>
+    <button class="opt">d. Enterprise, proprietary, and fiduciary.</button>
+    <button class="opt">e. Governmental Service, proprietary, and commercial.</button>
+    <div class="reveal-msg">Correct answer: <strong>c</strong>.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <p class="q">Which of the following is an example of a fiduciary fund?</p>
+    <button class="opt">a. The general fund, which accounts for police and fire services.</button>
+    <button class="opt">b. A pension trust fund, which holds assets belonging to city employees.</button>
+    <button class="opt">c. An enterprise fund, which accounts for a municipal water utility.</button>
+    <button class="opt">d. A capital projects fund, which holds bond proceeds for a new library.</button>
+    <button class="opt">e. A special revenue fund restricted to federal grant spending.</button>
+    <div class="reveal-msg">Correct answer: <strong>b</strong> &mdash; Fiduciary funds hold resources that belong to others. Employee pension assets belong to the employees, not the city &mdash; making this a fiduciary fund.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <p class="q">A city&#39;s motor pool department charges other city departments a monthly fee for vehicle use. Which fund type accounts for this activity?</p>
+    <button class="opt">a. General fund.</button>
+    <button class="opt">b. Special revenue fund.</button>
+    <button class="opt">c. Internal service fund.</button>
+    <button class="opt">d. Agency fund.</button>
+    <button class="opt">e. Permanent fund.</button>
+    <div class="reveal-msg">Correct answer: <strong>c</strong> &mdash; Internal service funds account for services provided by one department to other departments within the same government on a cost&#8209;reimbursement basis.</div>
+  </div>
+
+  <nav class="page-nav">
+    <a href="lo1.html">&larr; LO 17&#8209;1</a>
+    <span class="spacer"></span>
+    <a href="lo3.html">LO 17&#8209;3 &rarr;</a>
+  </nav>
+</main>
+<footer>Chapter 17 &mdash; Governmental Entities &nbsp;&middot;&nbsp; <span class="gold">LO 17&#8209;2</span></footer>
+<script>
+document.querySelectorAll('.quiz').forEach(function(quiz){
+  var ci=parseInt(quiz.dataset.correct,10);
+  var opts=quiz.querySelectorAll('.opt');
+  var msg=quiz.querySelector('.reveal-msg');
+  opts.forEach(function(opt,idx){
+    opt.addEventListener('click',function(){
+      if(quiz.dataset.answered)return;
+      quiz.dataset.answered='true';
+      opts.forEach(function(o,i){
+        o.disabled=true;
+        if(i===ci)o.classList.add('correct');
+        else if(i===idx)o.classList.add('incorrect');
+      });
+      if(msg)msg.classList.add('show');
+    });
+  });
+});
+(function(){
+  var page=window.location.pathname.split('/').pop();
+  document.querySelectorAll('.lo-pills a').forEach(function(a){
+    if(a.getAttribute('href')===page)a.classList.add('active');
+  });
+})();
+</script>
+</body>
+</html>

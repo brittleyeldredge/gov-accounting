@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LO 17‑6 · Budgeting Concepts</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap');
+  :root{--navy:#13294B;--navy-dark:#0B1B33;--parchment:#F6F2E9;--parchment-line:#D9CFB8;--ink:#1C2433;--gold:#9C7C38;--gold-bright:#C9A227;--green-stamp:#2F5D3A;--red-stamp:#8C2F2F;--muted:#5B6472;}
+  *{box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--parchment);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.6;}
+  h1,h2,h3,h4{font-family:'Source Serif 4',serif;}
+  .topbar{position:sticky;top:0;z-index:50;background:var(--navy-dark);border-bottom:3px double var(--gold-bright);}
+  .topbar-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:13px 24px;}
+  .brand{color:var(--parchment);font-family:'Source Serif 4',serif;font-weight:700;font-size:1.05rem;text-decoration:none;}
+  .brand span{color:var(--gold-bright);}
+  .lo-pills{display:flex;gap:6px;flex-wrap:wrap;max-width:1080px;margin:0 auto;padding:0 24px 10px;overflow-x:auto;}
+  .lo-pills a{font-family:'Roboto Mono',monospace;font-size:0.72rem;font-weight:700;color:#9FB0C9;text-decoration:none;border:1px solid rgba(201,162,39,0.25);border-radius:3px;padding:4px 10px;white-space:nowrap;transition:border-color .15s,color .15s;}
+  .lo-pills a:hover,.lo-pills a.active{border-color:var(--gold-bright);color:var(--parchment);}
+  .page-hero{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 100%);border-bottom:5px solid var(--gold-bright);padding:52px 24px 44px;position:relative;overflow:hidden;}
+  .page-hero::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(transparent,transparent 36px,rgba(255,255,255,0.03) 37px);pointer-events:none;}
+  .page-hero-inner{max-width:840px;margin:0 auto;position:relative;}
+  .eyebrow{display:inline-block;font-family:'Roboto Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-bright);border:1px solid var(--gold);padding:4px 10px;border-radius:2px;margin-bottom:16px;}
+  .page-hero h1{margin:0 0 12px;font-size:clamp(1.7rem,4vw,2.5rem);color:var(--parchment);font-weight:700;line-height:1.1;}
+  .page-hero p.lede{margin:0;font-size:1rem;color:#C7D2E3;max-width:600px;font-style:italic;}
+  main{max-width:840px;margin:0 auto;padding:40px 24px 80px;}
+  .card{background:#fff;border:1px solid var(--parchment-line);border-radius:8px;padding:24px 26px;margin-bottom:22px;box-shadow:0 1px 3px rgba(19,41,75,0.05);}
+  .card h3{margin:0 0 12px;font-size:1.1rem;color:var(--navy);}
+  .card h4{margin:18px 0 8px;font-size:0.95rem;}
+  .card p{margin:0 0 10px;}
+  .card ul{margin:6px 0;padding-left:20px;}
+  .card li{margin-bottom:6px;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0;}
+  @media(max-width:640px){.two-col{grid-template-columns:1fr;}}
+  .col-box{background:var(--parchment);border:1px solid var(--parchment-line);border-radius:6px;padding:16px 18px;}
+  .col-box .col-title{font-family:'Roboto Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);font-weight:700;margin-bottom:8px;}
+  .fund-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px;}
+  @media(max-width:640px){.fund-grid{grid-template-columns:1fr;}}
+  .fund-card{border-radius:8px;padding:18px;color:#fff;}
+  .fund-card h4{color:#fff;margin:0 0 8px;font-family:'Source Serif 4',serif;font-size:1rem;}
+  .fund-card p{font-size:0.85rem;opacity:0.92;margin:0 0 8px;}
+  .fund-card ul{padding-left:18px;font-size:0.85rem;opacity:0.95;margin:0;}
+  .fund-card li{margin-bottom:4px;}
+  .fc-gov{background:#1F4A78;}.fc-prop{background:#2F5D3A;}.fc-fid{background:#6B3F2E;}
+  .ledger-wrap{overflow-x:auto;margin:14px 0;}
+  table.ledger{border-collapse:collapse;width:100%;font-family:'Roboto Mono',monospace;font-size:0.84rem;background:#fff;}
+  table.ledger caption{text-align:left;font-family:'Inter',sans-serif;font-weight:600;font-size:0.82rem;color:var(--muted);margin-bottom:6px;caption-side:top;}
+  table.ledger th,table.ledger td{border-bottom:1px solid var(--parchment-line);padding:7px 12px;text-align:left;}
+  table.ledger th{background:var(--navy);color:var(--parchment);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;font-family:'Inter',sans-serif;font-weight:600;}
+  table.ledger td.amt{text-align:right;white-space:nowrap;}
+  table.ledger tr.credit td:first-child{padding-left:32px;color:var(--muted);}
+  .equation{font-family:'Roboto Mono',monospace;background:var(--ink);color:var(--parchment);border-radius:6px;padding:16px 20px;margin:14px 0;font-size:0.95rem;text-align:center;overflow-x:auto;}
+  .equation .gold{color:var(--gold-bright);}
+  .stat-row{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0;}
+  .stat{flex:1;min-width:130px;background:var(--navy);color:var(--parchment);border-radius:8px;padding:16px;text-align:center;}
+  .stat .num{font-family:'Roboto Mono',monospace;font-size:1.45rem;font-weight:700;color:var(--gold-bright);}
+  .stat .lbl{font-size:0.72rem;color:#C7D2E3;margin-top:4px;}
+  .flow{display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin:14px 0;}
+  .flow-step{background:var(--parchment);border:1px solid var(--gold);border-radius:5px;padding:9px 14px;font-size:0.85rem;font-weight:600;color:var(--navy);}
+  .flow-arrow{color:var(--gold);font-size:1.1rem;padding:0 4px;}
+  .quiz{border:1px solid var(--gold);border-radius:8px;padding:22px 24px;margin:24px 0;background:linear-gradient(180deg,#FDFBF5 0%,#FBF6E9 100%);position:relative;}
+  .quiz::before{content:"PRACTICE QUESTION";position:absolute;top:-11px;left:18px;background:var(--parchment);font-family:'Roboto Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;color:var(--gold);padding:0 8px;font-weight:700;}
+  .quiz p.q{font-weight:600;margin:6px 0 14px;}
+  .quiz .opt{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--parchment-line);border-radius:5px;padding:9px 12px;margin-bottom:7px;cursor:pointer;font-size:0.91rem;font-family:'Inter',sans-serif;color:var(--ink);transition:background .15s,border-color .15s;}
+  .quiz .opt:hover{border-color:var(--gold);background:#FFFDF5;}
+  .quiz .opt.correct{background:#E7F1E9;border-color:var(--green-stamp);font-weight:600;}
+  .quiz .opt.incorrect{background:#F6E7E7;border-color:var(--red-stamp);}
+  .quiz .opt:disabled{cursor:default;}
+  .quiz .reveal-msg{display:none;margin-top:10px;font-size:0.85rem;color:var(--muted);}
+  .quiz .reveal-msg.show{display:block;}
+  .page-nav{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--parchment-line);padding-top:32px;margin-top:48px;gap:12px;}
+  .page-nav a{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:0.9rem;color:var(--navy);text-decoration:none;border:1px solid var(--parchment-line);border-radius:6px;padding:10px 16px;background:#fff;transition:border-color .15s,background .15s;}
+  .page-nav a:hover{border-color:var(--gold);background:#FFFDF5;}
+  .page-nav .spacer{flex:1;}
+  footer{background:var(--navy-dark);color:#9FB0C9;text-align:center;padding:30px 24px;font-size:0.8rem;}
+  footer .gold{color:var(--gold-bright);}
+  ::selection{background:var(--gold-bright);color:var(--navy-dark);}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">The General <span>Fund</span> &mdash; Ch. 17</a>
+  </div>
+  <nav class="lo-pills">
+    <a href="lo1.html">LO 17&#8209;1</a><a href="lo2.html">LO 17&#8209;2</a><a href="lo3.html">LO 17&#8209;3</a><a href="lo4.html">LO 17&#8209;4</a><a href="lo5.html">LO 17&#8209;5</a><a href="lo6.html">LO 17&#8209;6</a><a href="lo7.html">LO 17&#8209;7</a><a href="lo8.html">LO 17&#8209;8</a>
+  </nav>
+</div>
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <span class="eyebrow">Learning Objective 17‑6</span>
+    <h1>Budgeting Concepts</h1>
+    <p class="lede">Understand and explain basic budgeting concepts in governmental accounting.</p>
+  </div>
+</header>
+<main>
+
+  <div class="card">
+    <h3>From understanding to doing</h3>
+    <p>So far we have covered what funds are, how they're categorized, how the two layers of financial reporting work, the key concepts behind governmental accounting, and the measurement focus and basis of accounting that govern each fund type. Now we get into the actual accounting — how a government picks up a pencil and records what happens.</p>
+    <p>The place to start is the <strong>budget</strong>. In governmental accounting, the budget isn't just a management planning tool kept in a spreadsheet. It is <em>recorded directly in the general ledger</em> and carries the force of law. Recording the budget gives the government the legal authority to levy taxes, collect revenues, and spend money. That makes it the first journal entry of every fiscal year — and it shapes every transaction that follows.</p>
+    <p>A critical convention to know before we look at any entries: <strong>in this class, budget accounts are always written in ALL CAPITAL LETTERS</strong>. This distinguishes them from actual operating accounts at a glance — when you see a capitalized account name in a governmental journal entry, you know immediately it is a budgetary control account with no direct effect on reported revenues, expenditures, or fund balance. Actual accounts like <em>Expenditures</em>, <em>Vouchers Payable</em>, and <em>Cash</em> are written in normal title case. In practice, governments handle the budget convention differently. Some follow the same all-caps approach; others simply label accounts with the word "budgetary" (e.g., <em>Budgetary Fund Balance</em> instead of <em>BUDGETARY FUND BALANCE</em>). The underlying accounting is identical either way — it's purely a notational choice. For our purposes, we will always use caps for budget accounts.</p>
+  </div>
+
+  <div class="card">
+    <h3>Why budgets get journalized</h3>
+    <p>In governmental accounting, the budget isn't just a planning spreadsheet &mdash; it's posted to the general ledger, providing the legal authority to levy taxes, collect revenue, and make expenditures.</p>
+    <div class="two-col">
+      <div class="col-box">
+        <div class="col-title">Operating Budgets</div>
+        <p style="margin:0;">Prepared for the <strong>general, special revenue,</strong> and <strong>debt service</strong> funds. Always recorded in the GL for control purposes.</p>
+      </div>
+      <div class="col-box">
+        <div class="col-title">Capital Budgets</div>
+        <p style="margin:0;">Prepared for the <strong>capital projects</strong> fund. Also recorded for Capital Projects and Debt Service funds when useful.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Key vocabulary</h3>
+    <ul>
+      <li><strong>Appropriation</strong> &mdash; the legal authority to expend resources. Annual budgets for the General Fund and Special Revenue Funds are always recorded in the GL.</li>
+      <li><strong>Encumbrance</strong> &mdash; a commitment related to an unperformed (executory) contract for goods or services. Recorded in special GL accounts to prevent overspending the appropriation.</li>
+    </ul>
+    <p style="font-size:0.9rem;color:var(--muted);">Budget entries have <strong>no effect on reported operations</strong> &mdash; they are a control mechanism, not a record of economic events.</p>
+  </div>
+
+  <div class="card">
+    <h3>The budget &rarr; expenditure pipeline</h3>
+    <p>Every dollar a government spends follows a predictable path from legislative approval to cash leaving the bank. Understanding each stage helps make sense of why the journal entries look the way they do.</p>
+    <div class="flow">
+      <span class="flow-step">Appropriation (Budget Recorded)</span><span class="flow-arrow">&rarr;</span>
+      <span class="flow-step">Encumbrance</span><span class="flow-arrow">&rarr;</span>
+      <span class="flow-step">Expenditure</span><span class="flow-arrow">&rarr;</span>
+      <span class="flow-step">Disbursement</span>
+    </div>
+    <div class="two-col" style="margin-top:18px;">
+      <div class="col-box">
+        <div class="col-title">Stage 1 — Appropriation (Budget Recorded)</div>
+        <p style="margin:0;">At the start of the fiscal year, the governing body formally adopts the budget and it is journalized into the general ledger. Recording the budget <em>is</em> the appropriation — they are one and the same event. It sets the legal spending authority for the year. <strong>ESTIMATED REVENUES CONTROL</strong> is debited and <strong>APPROPRIATIONS CONTROL</strong> is credited.</p>
+      </div>
+      <div class="col-box">
+        <div class="col-title">Stage 2 — Encumbrance</div>
+        <p style="margin:0;">When a department places an order or signs a contract, it records an <strong>encumbrance</strong> — a reservation of part of the appropriation. No cash has moved and no goods have arrived, but the commitment is on the books. This prevents the department from spending the same appropriation twice. <strong>ENCUMBRANCES</strong> is debited and <strong>BUDGETARY FUND BALANCE&mdash;ASSIGNED FOR ENCUMBRANCES</strong> is credited.</p>
+      </div>
+    </div>
+    <div class="two-col" style="margin-top:12px;">
+      <div class="col-box">
+        <div class="col-title">Stage 3 — Expenditure</div>
+        <p style="margin:0;">When goods arrive or services are rendered, the encumbrance is reversed and the actual <strong>expenditure</strong> is recorded. Unlike commercial accounting where costs are expensed as consumed, governmental funds record the full expenditure when the liability is incurred and payable from current resources.</p>
+      </div>
+      <div class="col-box">
+        <div class="col-title">Stage 4 — Disbursement</div>
+        <p style="margin:0;">The final stage is the <strong>cash payment</strong> — <strong>Vouchers Payable</strong> is debited and <strong>Cash</strong> is credited. Many governments use a voucher system requiring formal approval before cash is released, adding an extra layer of control over public funds.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Recording the operating budget</h3>
+    <p>On July 1, 20X1, Barb City's council approves <strong>$900,000</strong> in estimated revenue and <strong>$850,000</strong> in appropriations for the general fund.</p>
+    <div class="ledger-wrap">
+      <table class="ledger">
+        <caption>July 1, 20X1 &mdash; Record general fund budget for year</caption>
+        <tr><th>Account</th><th>Debit</th><th>Credit</th></tr>
+        <tr><td>ESTIMATED REVENUES CONTROL</td><td class="amt">900,000</td><td class="amt"></td></tr>
+        <tr class="credit"><td>APPROPRIATIONS CONTROL</td><td class="amt"></td><td class="amt">850,000</td></tr>
+        <tr class="credit"><td>BUDGETARY FUND BALANCE&mdash;UNASSIGNED</td><td class="amt"></td><td class="amt">50,000</td></tr>
+      </table>
+    </div>
+    <ul>
+      <li><strong>ESTIMATED REVENUES CONTROL</strong> is an anticipatory <em>asset</em>.</li>
+      <li><strong>APPROPRIATIONS CONTROL</strong> is an anticipatory <em>liability</em>.</li>
+      <li>The $50,000 surplus is credited to <strong>BUDGETARY FUND BALANCE&mdash;UNASSIGNED</strong>. A projected deficit would be <em>debited</em> there instead.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Worked example: what happens throughout the year</h3>
+    <p>Once the budget is recorded on July 1, the city goes about its business. Departments order supplies, sign contracts, receive goods, and pay invoices — all within the boundaries set by the appropriation. Here's how that plays out for one purchase: within the $850,000 appropriation, $15,000 is set aside for a chipper machine. The actual invoice comes in at $14,000.</p>
+
+    <h4>Step 1 &mdash; Record the encumbrance <span style="font-weight:400;color:var(--muted);">/ August 3, 20X1 — Purchase order issued</span></h4>
+    <div class="ledger-wrap">
+      <table class="ledger">
+        <caption>August 3, 20X1 &mdash; Chipper machine ordered; reserve $15,000 from the appropriation</caption>
+        <tr><th>Account</th><th>Debit</th><th>Credit</th></tr>
+        <tr><td>ENCUMBRANCES</td><td class="amt">15,000</td><td class="amt"></td></tr>
+        <tr class="credit"><td>BUDGETARY FUND BALANCE&mdash;ASSIGNED FOR ENC.</td><td class="amt"></td><td class="amt">15,000</td></tr>
+      </table>
+    </div>
+    <div class="equation" style="font-size:0.82rem;padding:10px 16px;text-align:left;">
+      Authority after Aug 3: $850,000 &minus; $15,000 encumbrance = <span class="gold">$835,000 remaining</span>
+    </div>
+
+    <h4>Step 2 &mdash; Goods received: reverse the encumbrance <span style="font-weight:400;color:var(--muted);">/ October 11, 20X1 — Machine delivered, invoice received</span></h4>
+    <div class="ledger-wrap">
+      <table class="ledger">
+        <caption>October 11, 20X1 &mdash; Reverse the full $15,000 encumbrance</caption>
+        <tr><th>Account</th><th>Debit</th><th>Credit</th></tr>
+        <tr><td>BUDGETARY FUND BALANCE&mdash;ASSIGNED FOR ENC.</td><td class="amt">15,000</td><td class="amt"></td></tr>
+        <tr class="credit"><td>ENCUMBRANCES</td><td class="amt"></td><td class="amt">15,000</td></tr>
+      </table>
+    </div>
+
+    <h4>Step 3 &mdash; Record the actual expenditure <span style="font-weight:400;color:var(--muted);">/ October 11, 20X1 — Same day as delivery</span></h4>
+    <div class="ledger-wrap">
+      <table class="ledger">
+        <caption>October 11, 20X1 &mdash; Record expenditure at actual invoice cost of $14,000</caption>
+        <tr><th>Account</th><th>Debit</th><th>Credit</th></tr>
+        <tr><td>Expenditures</td><td class="amt">14,000</td><td class="amt"></td></tr>
+        <tr class="credit"><td>Vouchers Payable</td><td class="amt"></td><td class="amt">14,000</td></tr>
+      </table>
+    </div>
+    <div class="equation" style="font-size:0.82rem;padding:10px 16px;text-align:left;">
+      Authority after Oct 11: $850,000 &minus; $14,000 expenditure &minus; $0 open encumbrances = <span class="gold">$836,000 remaining</span>
+      <span style="display:block;margin-top:4px;font-size:0.78rem;opacity:0.75;">Note: encumbrance freed up $15,000 but expenditure consumed $14,000 — the $1,000 difference returns to available authority.</span>
+    </div>
+
+    <h4>Step 4 &mdash; Pay the voucher <span style="font-weight:400;color:var(--muted);">/ November 1, 20X1 — Payment processed</span></h4>
+    <div class="ledger-wrap">
+      <table class="ledger">
+        <caption>November 1, 20X1 &mdash; Disburse cash to vendor</caption>
+        <tr><th>Account</th><th>Debit</th><th>Credit</th></tr>
+        <tr><td>Vouchers Payable</td><td class="amt">14,000</td><td class="amt"></td></tr>
+        <tr class="credit"><td>Cash</td><td class="amt"></td><td class="amt">14,000</td></tr>
+      </table>
+    </div>
+    <p style="font-size:0.85rem;color:var(--muted);">The encumbrance always reverses at its original amount ($15,000) even though the actual expenditure was only $14,000.</p>
+
+    <h4 style="margin-top:22px;">November 18, 20X1 — Where does the full budget stand?</h4>
+    <p>The chipper machine is just one of many purchases made throughout the year. By November 18, Barb City has recorded $400,000 in total expenditures (including the $14,000 chipper) and still has $30,000 in open encumbrances for other outstanding orders.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="num">$850,000</div><div class="lbl">Total Appropriations</div></div>
+      <div class="stat"><div class="num">$400,000</div><div class="lbl">Expenditures to Date</div></div>
+      <div class="stat"><div class="num">$30,000</div><div class="lbl">Open Encumbrances</div></div>
+    </div>
+    <div class="equation">$850,000 &minus; ($400,000 + $30,000) = <span class="gold">$420,000 remaining authority</span></div>
+    <p style="font-size:0.85rem;color:var(--muted);">Both expenditures <em>and</em> open encumbrances are subtracted from the appropriation — a committed but undelivered order is just as much a claim on the budget as a paid invoice.</p>
+  </div>
+
+  <div class="quiz" data-correct="0">
+    <p class="q">Practice Question &mdash; Why do state and local governments record encumbrances?</p>
+    <button class="opt">a. To ensure that the entity does not spend more than has been appropriated.</button>
+    <button class="opt">b. To ensure that the entity earns sufficient revenues to achieve profitability.</button>
+    <button class="opt">c. To ensure that all subentities within the organization are not encumbered.</button>
+    <button class="opt">d. To ensure that the entity spends at least as much as has been appropriated.</button>
+    <button class="opt">e. For fun.</button>
+    <div class="reveal-msg">Correct answer: <strong>a</strong> &mdash; encumbrances prevent the entity from overspending its legal appropriation.</div>
+  </div>
+  <div class="quiz" data-correct="3">
+    <p class="q">On July 1, 20X1, Barb City records its budget: $900,000 in estimated revenues and $850,000 in appropriations. Which entry is correct?</p>
+    <button class="opt">a. Debit Appropriations Control $850,000; Credit Estimated Revenues Control $900,000; Credit Budgetary Fund Balance $50,000.</button>
+    <button class="opt">b. Debit Cash $900,000; Credit Revenues $900,000.</button>
+    <button class="opt">c. Debit Estimated Revenues Control $900,000; Credit Appropriations Control $900,000.</button>
+    <button class="opt">d. Debit Estimated Revenues Control $900,000; Credit Appropriations Control $850,000; Credit Budgetary Fund Balance &mdash; Unassigned $50,000.</button>
+    <button class="opt">e. Debit Appropriations Control $900,000; Credit Budgetary Fund Balance $900,000.</button>
+    <div class="reveal-msg">Correct answer: <strong>d</strong> &mdash; The budget entry debits ESTIMATED REVENUES CONTROL and credits APPROPRIATIONS CONTROL. The $50,000 surplus (revenues exceed appropriations) goes to BUDGETARY FUND BALANCE &mdash; UNASSIGNED.</div>
+  </div>
+
+  <div class="quiz" data-correct="1">
+    <p class="q">As of November 18, Barb City has $850,000 in appropriations, $400,000 in expenditures, and $30,000 in open encumbrances. How much appropriating authority remains?</p>
+    <button class="opt">a. $450,000.</button>
+    <button class="opt">b. $420,000.</button>
+    <button class="opt">c. $430,000.</button>
+    <button class="opt">d. $850,000.</button>
+    <button class="opt">e. $820,000.</button>
+    <div class="reveal-msg">Correct answer: <strong>b</strong> &mdash; $850,000 &minus; ($400,000 + $30,000) = $420,000. Both expenditures and open encumbrances reduce available authority.</div>
+  </div>
+
+  <div class="quiz" data-correct="2">
+    <p class="q">When a purchase order is issued for $10,000 of supplies, which entry is recorded?</p>
+    <button class="opt">a. Debit Expenditures $10,000; Credit Vouchers Payable $10,000.</button>
+    <button class="opt">b. Debit Cash $10,000; Credit ENCUMBRANCES $10,000.</button>
+    <button class="opt">c. Debit ENCUMBRANCES $10,000; Credit BUDGETARY FUND BALANCE &mdash; ASSIGNED FOR ENC. $10,000.</button>
+    <button class="opt">d. Debit APPROPRIATIONS CONTROL $10,000; Credit ENCUMBRANCES $10,000.</button>
+    <button class="opt">e. No entry is made until the goods are received.</button>
+    <div class="reveal-msg">Correct answer: <strong>c</strong> &mdash; An encumbrance is recorded when a purchase order is issued &mdash; before goods arrive. ENCUMBRANCES is debited and BUDGETARY FUND BALANCE &mdash; ASSIGNED FOR ENC. is credited.</div>
+  </div>
+
+  <nav class="page-nav">
+    <a href="lo5.html">&larr; LO 17‑5</a>
+    <span class="spacer"></span>
+    <a href="lo7.html">LO 17‑7 &rarr;</a>
+  </nav>
+</main>
+<footer>Chapter 17 &mdash; Governmental Entities &nbsp;&middot;&nbsp; <span class="gold">LO 17‑6</span></footer>
+<script>
+document.querySelectorAll('.quiz').forEach(function(quiz){
+  var ci=parseInt(quiz.dataset.correct,10);
+  var opts=quiz.querySelectorAll('.opt');
+  var msg=quiz.querySelector('.reveal-msg');
+  opts.forEach(function(opt,idx){
+    opt.addEventListener('click',function(){
+      if(quiz.dataset.answered)return;
+      quiz.dataset.answered='true';
+      opts.forEach(function(o,i){
+        o.disabled=true;
+        if(i===ci)o.classList.add('correct');
+        else if(i===idx)o.classList.add('incorrect');
+      });
+      if(msg)msg.classList.add('show');
+    });
+  });
+});
+(function(){
+  var page=window.location.pathname.split('/').pop();
+  document.querySelectorAll('.lo-pills a').forEach(function(a){
+    if(a.getAttribute('href')===page)a.classList.add('active');
+  });
+})();
+</script>
+</body>
+</html>

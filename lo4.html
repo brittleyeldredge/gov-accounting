@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LO 17‑2 · Major Concepts of Governmental Accounting</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap');
+  :root{--navy:#13294B;--navy-dark:#0B1B33;--parchment:#F6F2E9;--parchment-line:#D9CFB8;--ink:#1C2433;--gold:#9C7C38;--gold-bright:#C9A227;--green-stamp:#2F5D3A;--red-stamp:#8C2F2F;--muted:#5B6472;}
+  *{box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--parchment);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.6;}
+  h1,h2,h3,h4{font-family:'Source Serif 4',serif;}
+  .topbar{position:sticky;top:0;z-index:50;background:var(--navy-dark);border-bottom:3px double var(--gold-bright);}
+  .topbar-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:13px 24px;}
+  .brand{color:var(--parchment);font-family:'Source Serif 4',serif;font-weight:700;font-size:1.05rem;text-decoration:none;}
+  .brand span{color:var(--gold-bright);}
+  .lo-pills{display:flex;gap:6px;flex-wrap:wrap;max-width:1080px;margin:0 auto;padding:0 24px 10px;overflow-x:auto;}
+  .lo-pills a{font-family:'Roboto Mono',monospace;font-size:0.72rem;font-weight:700;color:#9FB0C9;text-decoration:none;border:1px solid rgba(201,162,39,0.25);border-radius:3px;padding:4px 10px;white-space:nowrap;transition:border-color .15s,color .15s;}
+  .lo-pills a:hover,.lo-pills a.active{border-color:var(--gold-bright);color:var(--parchment);}
+  .page-hero{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 100%);border-bottom:5px solid var(--gold-bright);padding:52px 24px 44px;position:relative;overflow:hidden;}
+  .page-hero::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(transparent,transparent 36px,rgba(255,255,255,0.03) 37px);pointer-events:none;}
+  .page-hero-inner{max-width:840px;margin:0 auto;position:relative;}
+  .eyebrow{display:inline-block;font-family:'Roboto Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-bright);border:1px solid var(--gold);padding:4px 10px;border-radius:2px;margin-bottom:16px;}
+  .page-hero h1{margin:0 0 12px;font-size:clamp(1.7rem,4vw,2.5rem);color:var(--parchment);font-weight:700;line-height:1.1;}
+  .page-hero p.lede{margin:0;font-size:1rem;color:#C7D2E3;max-width:600px;font-style:italic;}
+  main{max-width:840px;margin:0 auto;padding:40px 24px 80px;}
+  .card{background:#fff;border:1px solid var(--parchment-line);border-radius:8px;padding:24px 26px;margin-bottom:22px;box-shadow:0 1px 3px rgba(19,41,75,0.05);}
+  .card h3{margin:0 0 12px;font-size:1.1rem;color:var(--navy);}
+  .card h4{margin:18px 0 8px;font-size:0.95rem;}
+  .card p{margin:0 0 10px;}
+  .card ul{margin:6px 0;padding-left:20px;}
+  .card li{margin-bottom:6px;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0;}
+  @media(max-width:640px){.two-col{grid-template-columns:1fr;}}
+  .col-box{background:var(--parchment);border:1px solid var(--parchment-line);border-radius:6px;padding:16px 18px;}
+  .col-box .col-title{font-family:'Roboto Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);font-weight:700;margin-bottom:8px;}
+  .fund-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px;}
+  @media(max-width:640px){.fund-grid{grid-template-columns:1fr;}}
+  .fund-card{border-radius:8px;padding:18px;color:#fff;}
+  .fund-card h4{color:#fff;margin:0 0 8px;font-family:'Source Serif 4',serif;font-size:1rem;}
+  .fund-card p{font-size:0.85rem;opacity:0.92;margin:0 0 8px;}
+  .fund-card ul{padding-left:18px;font-size:0.85rem;opacity:0.95;margin:0;}
+  .fund-card li{margin-bottom:4px;}
+  .fc-gov{background:#1F4A78;}.fc-prop{background:#2F5D3A;}.fc-fid{background:#6B3F2E;}
+  .ledger-wrap{overflow-x:auto;margin:14px 0;}
+  table.ledger{border-collapse:collapse;width:100%;font-family:'Roboto Mono',monospace;font-size:0.84rem;background:#fff;}
+  table.ledger caption{text-align:left;font-family:'Inter',sans-serif;font-weight:600;font-size:0.82rem;color:var(--muted);margin-bottom:6px;caption-side:top;}
+  table.ledger th,table.ledger td{border-bottom:1px solid var(--parchment-line);padding:7px 12px;text-align:left;}
+  table.ledger th{background:var(--navy);color:var(--parchment);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;font-family:'Inter',sans-serif;font-weight:600;}
+  table.ledger td.amt{text-align:right;white-space:nowrap;}
+  table.ledger tr.credit td:first-child{padding-left:32px;color:var(--muted);}
+  .equation{font-family:'Roboto Mono',monospace;background:var(--ink);color:var(--parchment);border-radius:6px;padding:16px 20px;margin:14px 0;font-size:0.95rem;text-align:center;overflow-x:auto;}
+  .equation .gold{color:var(--gold-bright);}
+  .stat-row{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0;}
+  .stat{flex:1;min-width:130px;background:var(--navy);color:var(--parchment);border-radius:8px;padding:16px;text-align:center;}
+  .stat .num{font-family:'Roboto Mono',monospace;font-size:1.45rem;font-weight:700;color:var(--gold-bright);}
+  .stat .lbl{font-size:0.72rem;color:#C7D2E3;margin-top:4px;}
+  .flow{display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin:14px 0;}
+  .flow-step{background:var(--parchment);border:1px solid var(--gold);border-radius:5px;padding:9px 14px;font-size:0.85rem;font-weight:600;color:var(--navy);}
+  .flow-arrow{color:var(--gold);font-size:1.1rem;padding:0 4px;}
+  .quiz{border:1px solid var(--gold);border-radius:8px;padding:22px 24px;margin:24px 0;background:linear-gradient(180deg,#FDFBF5 0%,#FBF6E9 100%);position:relative;}
+  .quiz::before{content:"PRACTICE QUESTION";position:absolute;top:-11px;left:18px;background:var(--parchment);font-family:'Roboto Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;color:var(--gold);padding:0 8px;font-weight:700;}
+  .quiz p.q{font-weight:600;margin:6px 0 14px;}
+  .quiz .opt{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--parchment-line);border-radius:5px;padding:9px 12px;margin-bottom:7px;cursor:pointer;font-size:0.91rem;font-family:'Inter',sans-serif;color:var(--ink);transition:background .15s,border-color .15s;}
+  .quiz .opt:hover{border-color:var(--gold);background:#FFFDF5;}
+  .quiz .opt.correct{background:#E7F1E9;border-color:var(--green-stamp);font-weight:600;}
+  .quiz .opt.incorrect{background:#F6E7E7;border-color:var(--red-stamp);}
+  .quiz .opt:disabled{cursor:default;}
+  .quiz .reveal-msg{display:none;margin-top:10px;font-size:0.85rem;color:var(--muted);}
+  .quiz .reveal-msg.show{display:block;}
+  .page-nav{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--parchment-line);padding-top:32px;margin-top:48px;gap:12px;}
+  .page-nav a{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:0.9rem;color:var(--navy);text-decoration:none;border:1px solid var(--parchment-line);border-radius:6px;padding:10px 16px;background:#fff;transition:border-color .15s,background .15s;}
+  .page-nav a:hover{border-color:var(--gold);background:#FFFDF5;}
+  .page-nav .spacer{flex:1;}
+  footer{background:var(--navy-dark);color:#9FB0C9;text-align:center;padding:30px 24px;font-size:0.8rem;}
+  footer .gold{color:var(--gold-bright);}
+  ::selection{background:var(--gold-bright);color:var(--navy-dark);}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">The General <span>Fund</span> &mdash; Ch. 17</a>
+  </div>
+  <nav class="lo-pills">
+    <a href="lo1.html">LO 17&#8209;1</a><a href="lo2.html">LO 17&#8209;2</a><a href="lo3.html">LO 17&#8209;3</a><a href="lo4.html">LO 17&#8209;4</a><a href="lo5.html">LO 17&#8209;5</a><a href="lo6.html">LO 17&#8209;6</a><a href="lo7.html">LO 17&#8209;7</a><a href="lo8.html">LO 17&#8209;8</a>
+  </nav>
+</div>
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <span class="eyebrow">Learning Objective 17&#8209;4</span>
+    <h1>Major Concepts of Governmental Accounting</h1>
+    <p class="lede">Understand and explain major concepts of governmental accounting.</p>
+  </div>
+</header>
+<main>
+
+  <div class="card">
+    <h3>Elements of a statement of financial condition</h3>
+    <p>Now that we understand the two layers of reporting (covered in <a href="lo3.html" style="color:var(--navy);font-weight:600;">LO 17&#8209;3</a>), we can look more closely at the elements that make up those statements. The statement of financial condition is the governmental equivalent of a balance sheet — it shows what the entity controls, what it owes, and what's left over.</p>
+    <ul>
+      <li><strong>Assets</strong> &mdash; resources with present service capacity that the entity presently controls. Examples: cash, property tax receivable, capital assets (in government-wide statements), prepaid expenses.</li>
+      <li><strong>Liabilities</strong> &mdash; present obligations to sacrifice resources that the entity has little or no discretion to avoid. Examples: accounts payable, wages payable, bonds payable (in government-wide statements).</li>
+      <li><strong>Net position</strong> &mdash; the residual of all other elements: Assets &minus; Liabilities = Net Position. Replaces "equity" or "fund balance" in government-wide statements.</li>
+    </ul>
+    <div class="equation">Assets &minus; Liabilities = <span class="gold">Net Position</span></div>
+  </div>
+
+  <div class="card">
+    <h3>Example: Statement of Financial Condition</h3>
+    <p>Below is a simplified illustration for <strong>Barb City's General Fund</strong> at June 30, 20X2. Notice that only current assets and current liabilities appear — long-term items live in the government-wide statements, not here.</p>
+    <div class="ledger-wrap">
+      <table class="ledger">
+        <caption>Barb City — General Fund Balance Sheet (Simplified) — June 30, 20X2</caption>
+        <tr><th colspan="2">Assets</th></tr>
+        <tr><td>Cash and cash equivalents</td><td class="amt">$182,000</td></tr>
+        <tr><td>Property taxes receivable (net)</td><td class="amt">83,000</td></tr>
+        <tr><td>Inventory of supplies</td><td class="amt">14,000</td></tr>
+        <tr><td style="padding-left:32px;font-weight:600;">Total Assets</td><td class="amt" style="font-weight:600;">$279,000</td></tr>
+        <tr><th colspan="2">Liabilities</th></tr>
+        <tr><td>Accounts payable</td><td class="amt">$38,000</td></tr>
+        <tr><td>Wages payable</td><td class="amt">21,000</td></tr>
+        <tr><td style="padding-left:32px;font-weight:600;">Total Liabilities</td><td class="amt" style="font-weight:600;">$59,000</td></tr>
+        <tr><th colspan="2">Fund Balance</th></tr>
+        <tr><td>Nonspendable (inventory)</td><td class="amt">$14,000</td></tr>
+        <tr><td>Assigned</td><td class="amt">46,000</td></tr>
+        <tr><td>Unassigned</td><td class="amt">160,000</td></tr>
+        <tr><td style="padding-left:32px;font-weight:600;">Total Fund Balance</td><td class="amt" style="font-weight:600;">$220,000</td></tr>
+        <tr><td style="font-weight:700;">Total Liabilities &amp; Fund Balance</td><td class="amt" style="font-weight:700;">$279,000</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Elements of the resource flow statements</h3>
+    <p>The resource flow statement records what happened during the period — what came in and what went out. Governmental funds present this as the <strong>Statement of Revenues, Expenditures, and Changes in Fund Balance</strong>.</p>
+    <ul>
+      <li><strong>Inflow of resources</strong> &mdash; an acquisition of net assets applicable to the <em>current</em> reporting period. For governmental funds this means revenues that are measurable and available.</li>
+      <li><strong>Outflow of resources</strong> &mdash; a consumption of net assets applicable to the <em>current</em> reporting period. For governmental funds this means expenditures — the cost of goods and services received in the current period payable from current resources.</li>
+    </ul>
+    <p>Other financing sources (bond proceeds, interfund transfers in) and other financing uses (transfers out) are also reported here but are kept separate from revenues and expenditures so readers can see the difference.</p>
+  </div>
+
+  <div class="card">
+    <h3>Example: Statement of Revenues, Expenditures &amp; Changes in Fund Balance</h3>
+    <p>This is the operating statement for Barb City's General Fund for the year ended June 30, 20X2.</p>
+    <div class="ledger-wrap">
+      <table class="ledger">
+        <caption>Barb City — General Fund Operating Statement (Simplified) — Year Ended June 30, 20X2</caption>
+        <tr><th colspan="2">Revenues</th></tr>
+        <tr><td>Property taxes</td><td class="amt">$620,000</td></tr>
+        <tr><td>Intergovernmental grants</td><td class="amt">115,000</td></tr>
+        <tr><td>Licenses and fees</td><td class="amt">48,000</td></tr>
+        <tr><td style="padding-left:32px;font-weight:600;">Total Revenues</td><td class="amt" style="font-weight:600;">$783,000</td></tr>
+        <tr><th colspan="2">Expenditures</th></tr>
+        <tr><td>General government</td><td class="amt">$210,000</td></tr>
+        <tr><td>Public safety</td><td class="amt">295,000</td></tr>
+        <tr><td>Public works</td><td class="amt">124,000</td></tr>
+        <tr><td style="padding-left:32px;font-weight:600;">Total Expenditures</td><td class="amt" style="font-weight:600;">$629,000</td></tr>
+        <tr><td style="font-weight:600;">Excess of Revenues over Expenditures</td><td class="amt" style="font-weight:600;">$154,000</td></tr>
+        <tr><th colspan="2">Other Financing Sources (Uses)</th></tr>
+        <tr><td>Transfers in from capital projects fund</td><td class="amt">$20,000</td></tr>
+        <tr><td>Transfers out to debt service fund</td><td class="amt">(45,000)</td></tr>
+        <tr><td style="padding-left:32px;font-weight:600;">Total Other Financing Sources (Uses)</td><td class="amt" style="font-weight:600;">(25,000)</td></tr>
+        <tr><td style="font-weight:600;">Net Change in Fund Balance</td><td class="amt" style="font-weight:600;">$129,000</td></tr>
+        <tr><td>Fund balance, July 1, 20X1</td><td class="amt">$91,000</td></tr>
+        <tr><td style="font-weight:700;">Fund Balance, June 30, 20X2</td><td class="amt" style="font-weight:700;">$220,000</td></tr>
+      </table>
+    </div>
+    <p style="font-size:0.85rem;color:var(--muted);">The ending fund balance of $220,000 ties directly back to the balance sheet above &mdash; this is how the two statements connect. Also note: these are <em>expenditures</em>, not expenses. The distinction matters because governmental funds record the full cost of goods and services when received and payable, not when the underlying asset is consumed over time.</p>
+  </div>
+
+  <div class="card">
+    <h3>Expendability vs. capital maintenance</h3>
+    <p>Commercial businesses ask "did we maintain our capital?" Governments ask "did we spend within budget on the public's behalf?" That difference shows up directly in the financial statements.</p>
+    <div class="two-col">
+      <div class="col-box">
+        <div class="col-title">Commercial Enterprises</div>
+        <ul>
+          <li><strong>Measurement focus:</strong> flow of <em>all</em> economic resources</li>
+          <li><strong>Method:</strong> accrual accounting</li>
+          <li><strong>Balance sheet:</strong> current <em>and</em> noncurrent assets and liabilities; retained earnings reflects capital maintenance</li>
+        </ul>
+      </div>
+      <div class="col-box">
+        <div class="col-title">Government Entities</div>
+        <ul>
+          <li><strong>Measurement focus:</strong> changes in <em>current financial resources</em> available to provide services per budget</li>
+          <li><strong>Method:</strong> modified accrual</li>
+          <li><strong>Balance sheet:</strong> only current assets, current liabilities, and a fund balance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="quiz" data-correct="4">
+    <p class="q">Practice Question &mdash; Which of the following statements is true?</p>
+    <button class="opt">a. Commercial enterprises use the modified accrual basis and focus on the flow of all economic resources.</button>
+    <button class="opt">b. The balance sheets of governmental units contain long&#8209;term assets and liabilities.</button>
+    <button class="opt">c. The balance sheets of commercial entities contain a fund balance.</button>
+    <button class="opt">d. The resource flow statement contains long&#8209;term assets and liabilities.</button>
+    <button class="opt">e. Governmental units use the modified accrual basis and focus on the flow of current economic resources.</button>
+    <div class="reveal-msg">Correct answer: <strong>e</strong> &mdash; modified accrual + current financial resources is the governmental&#8209;fund combination to memorize.</div>
+  </div>
+  <div class="quiz" data-correct="2">
+    <p class="q">Which of the following correctly describes the modified accounting equation used for governmental fund balance sheets?</p>
+    <button class="opt">a. Assets &minus; Liabilities = Owner&rsquo;s Equity.</button>
+    <button class="opt">b. Assets + Liabilities = Net Position.</button>
+    <button class="opt">c. Assets &minus; Liabilities = Fund Balance.</button>
+    <button class="opt">d. Assets + Deferred Outflows &minus; Liabilities &minus; Deferred Inflows = Net Position.</button>
+    <button class="opt">e. Revenues &minus; Expenditures = Fund Balance.</button>
+    <div class="reveal-msg">Correct answer: <strong>c</strong> &mdash; Governmental fund balance sheets use Assets &minus; Liabilities = Fund Balance. Net position is used in government&#8209;wide statements.</div>
+  </div>
+
+  <div class="quiz" data-correct="3">
+    <p class="q">Under GASB 54, which fund balance classification represents resources formally committed by the highest level of governmental authority?</p>
+    <button class="opt">a. Nonspendable.</button>
+    <button class="opt">b. Restricted.</button>
+    <button class="opt">c. Assigned.</button>
+    <button class="opt">d. Limited (Committed).</button>
+    <button class="opt">e. Unassigned.</button>
+    <div class="reveal-msg">Correct answer: <strong>d</strong> &mdash; Limited (Committed) fund balance has been formally committed by the government&rsquo;s highest decision&#8209;making authority and can only be changed by that same level of authority.</div>
+  </div>
+
+  <nav class="page-nav">
+    <a href="lo3.html">&larr; LO 17&#8209;3</a>
+    <span class="spacer"></span>
+    <a href="lo5.html">LO 17&#8209;5 &rarr;</a>
+  </nav>
+</main>
+<footer>Chapter 17 &mdash; Governmental Entities &nbsp;&middot;&nbsp; <span class="gold">LO 17&#8209;4</span></footer>
+<script>
+document.querySelectorAll('.quiz').forEach(function(quiz){
+  var ci=parseInt(quiz.dataset.correct,10);
+  var opts=quiz.querySelectorAll('.opt');
+  var msg=quiz.querySelector('.reveal-msg');
+  opts.forEach(function(opt,idx){
+    opt.addEventListener('click',function(){
+      if(quiz.dataset.answered)return;
+      quiz.dataset.answered='true';
+      opts.forEach(function(o,i){
+        o.disabled=true;
+        if(i===ci)o.classList.add('correct');
+        else if(i===idx)o.classList.add('incorrect');
+      });
+      if(msg)msg.classList.add('show');
+    });
+  });
+});
+(function(){
+  var page=window.location.pathname.split('/').pop();
+  document.querySelectorAll('.lo-pills a').forEach(function(a){
+    if(a.getAttribute('href')===page)a.classList.add('active');
+  });
+})();
+</script>
+</body>
+</html>

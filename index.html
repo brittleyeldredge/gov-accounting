@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Governmental Accounting — Chapter 17</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap');
+  :root{--navy:#13294B;--navy-dark:#0B1B33;--parchment:#F6F2E9;--parchment-line:#D9CFB8;--ink:#1C2433;--gold:#9C7C38;--gold-bright:#C9A227;--green-stamp:#2F5D3A;--red-stamp:#8C2F2F;--muted:#5B6472;}
+  *{box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--parchment);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.6;}
+  h1,h2,h3,h4{font-family:'Source Serif 4',serif;}
+  .topbar{position:sticky;top:0;z-index:50;background:var(--navy-dark);border-bottom:3px double var(--gold-bright);}
+  .topbar-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:13px 24px;}
+  .brand{color:var(--parchment);font-family:'Source Serif 4',serif;font-weight:700;font-size:1.05rem;text-decoration:none;}
+  .brand span{color:var(--gold-bright);}
+  .lo-pills{display:flex;gap:6px;flex-wrap:wrap;max-width:1080px;margin:0 auto;padding:0 24px 10px;overflow-x:auto;}
+  .lo-pills a{font-family:'Roboto Mono',monospace;font-size:0.72rem;font-weight:700;color:#9FB0C9;text-decoration:none;border:1px solid rgba(201,162,39,0.25);border-radius:3px;padding:4px 10px;white-space:nowrap;transition:border-color .15s,color .15s;}
+  .lo-pills a:hover,.lo-pills a.active{border-color:var(--gold-bright);color:var(--parchment);}
+  .home-hero{background:radial-gradient(circle at 75% 25%,rgba(201,162,39,0.12),transparent 50%),var(--navy-dark);border-bottom:6px solid var(--gold-bright);padding:70px 24px 60px;position:relative;overflow:hidden;}
+  .home-hero::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(transparent,transparent 38px,rgba(255,255,255,0.03) 39px);pointer-events:none;}
+  .home-hero-inner{max-width:900px;margin:0 auto;position:relative;}
+  .eyebrow{display:inline-block;font-family:'Roboto Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-bright);border:1px solid var(--gold);padding:4px 10px;border-radius:2px;margin-bottom:18px;}
+  .home-hero h1{font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.07;color:var(--parchment);margin:0 0 16px;}
+  .home-hero h1 em{color:var(--gold-bright);font-style:normal;}
+  .home-hero p{font-size:1.05rem;color:#C7D2E3;max-width:580px;margin:0 0 36px;}
+  .hero-quote{max-width:680px;border-left:3px solid var(--gold-bright);padding:18px 22px;background:rgba(255,255,255,0.04);border-radius:0 6px 6px 0;}
+  .hero-quote p{margin:0 0 10px;font-size:1rem;color:var(--parchment);line-height:1.6;}
+  .hero-quote p:last-child{margin:0;font-size:0.82rem;color:#9FB0C9;font-style:italic;}
+  .lo-grid{max-width:900px;margin:0 auto;padding:48px 24px 80px;display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  @media(max-width:640px){.lo-grid{grid-template-columns:1fr;}}
+  .lo-card{background:#fff;border:1px solid var(--parchment-line);border-radius:10px;padding:22px 22px 18px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:8px;box-shadow:0 1px 3px rgba(19,41,75,0.05);transition:border-color .15s,box-shadow .15s,transform .1s;}
+  .lo-card:hover{border-color:var(--gold);box-shadow:0 4px 14px rgba(19,41,75,0.10);transform:translateY(-2px);}
+  .lo-card .tag{display:inline-block;font-family:'Roboto Mono',monospace;font-size:0.7rem;font-weight:700;color:var(--parchment);background:var(--navy);padding:3px 9px;border-radius:3px;align-self:flex-start;}
+  .lo-card h3{margin:0;font-size:1.05rem;color:var(--navy);}
+  .lo-card p{margin:0;font-size:0.86rem;color:var(--muted);line-height:1.45;}
+  .lo-card .arrow{margin-top:auto;color:var(--gold);font-size:1.1rem;}
+  footer{background:var(--navy-dark);color:#9FB0C9;text-align:center;padding:30px 24px;font-size:0.8rem;}
+  footer .gold{color:var(--gold-bright);}
+  ::selection{background:var(--gold-bright);color:var(--navy-dark);}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">The General <span>Fund</span> — Ch. 17</a>
+  </div>
+  <nav class="lo-pills">
+    <a href="lo1.html">LO 17‑1</a><a href="lo2.html">LO 17‑2</a><a href="lo3.html">LO 17‑3</a><a href="lo4.html">LO 17‑4</a><a href="lo5.html">LO 17‑5</a><a href="lo6.html">LO 17‑6</a><a href="lo7.html">LO 17‑7</a><a href="lo8.html">LO 17‑8</a>
+  </nav>
+</div>
+<header class="home-hero">
+  <div class="home-hero-inner">
+    <span class="eyebrow">Chapter 17 · Day 23 In‑Class Notes</span>
+    <h1>Governmental <em>Entities</em><br>&amp; Fund Accounting</h1>
+    <p>A structured walkthrough of how state and local governments account for public money — from GASB's mandate through funds, budgets, and the journal entries that keep a city's books straight.</p>
+    <div class="hero-quote">
+      <p>Unlike private businesses, governments hold resources on behalf of the public — and the public has a right to know how those resources are used. <strong>Accountability</strong> is not just an accounting principle here; it is the entire purpose of governmental financial reporting.</p>
+      <p>Every fund, budget entry, and journal entry in this chapter is ultimately a tool for demonstrating that public money was collected and spent in accordance with the law and the public's trust.</p>
+    </div>
+  </div>
+</header>
+
+<div style="max-width:900px;margin:28px auto 0;padding:0 24px;">
+  <div style="background:#fff;border:1px solid var(--parchment-line);border-left:4px solid var(--gold-bright);border-radius:0 6px 6px 0;padding:16px 20px;display:flex;gap:14px;align-items:flex-start;">
+    <span style="font-family:'Roboto Mono',monospace;font-size:0.72rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;flex-shrink:0;padding-top:2px;">ACC 200 Note</span>
+    <p style="margin:0;font-size:0.88rem;color:var(--muted);line-height:1.55;">This material covers governmental accounting at an <strong style="color:var(--ink);">introductory ACC 200 level</strong>. Government accounting is a broad and complex field — state and local governments engage in many activities, transactions, and reporting requirements that we will not address in this course. The goal here is to build a working foundation in the concepts and journal entries most relevant to this level, which is also <strong style="color:var(--ink);">consistent with what is tested on the CPA exam</strong>.</p>
+  </div>
+</div>
+
+<div class="lo-grid">
+  <a class="lo-card" href="lo1.html"><span class="tag">LO 17‑1</span><h3>Government vs. Private‑Sector Accounting</h3><p>The key differences in purpose, structure, and standards — including who the GASB is and what they govern.</p><span class="arrow">→</span></a>
+  <a class="lo-card" href="lo2.html"><span class="tag">LO 17‑2</span><h3>Fund Types &amp; Fund Accounting</h3><p>What a fund is, why governments use fund accounting, all three fund categories with every fund type explained and illustrated with real-world examples.</p><span class="arrow">→</span></a>
+  <a class="lo-card" href="lo3.html"><span class="tag">LO 17‑3</span><h3>Financial Reporting</h3><p>The two required layers of governmental reporting — fund-based statements vs. government-wide statements — and how each serves a different accountability purpose.</p><span class="arrow">→</span></a>
+  <a class="lo-card" href="lo4.html"><span class="tag">LO 17‑4</span><h3>Major Concepts</h3><p>Financial statement elements, expendability vs. capital maintenance, and how measurement focus diverges from commercial accounting.</p><span class="arrow">→</span></a>
+  <a class="lo-card" href="lo5.html"><span class="tag">LO 17‑5</span><h3>Measurement Focus &amp; Basis of Accounting</h3><p>Modified accrual vs. full accrual — which funds use each basis and how revenue and expenditure recognition work.</p><span class="arrow">→</span></a>
+  <a class="lo-card" href="lo6.html"><span class="tag">LO 17‑6</span><h3>Budgeting Concepts</h3><p>Why budgets get journalized, appropriations and encumbrances, and the full pipeline with worked journal entries.</p><span class="arrow">→</span></a>
+  <a class="lo-card" href="lo7.html"><span class="tag">LO 17‑7</span><h3>Journal Entries for the General Fund</h3><p>Outstanding encumbrances at year‑end, inventory methods, fixed assets, long‑term debt, and investments.</p><span class="arrow">→</span></a>
+  <a class="lo-card" href="lo8.html"><span class="tag">LO 17‑8</span><h3>Interfund Activities</h3><p>The four types of resource flows between fund entities — loans, services, transfers, and reimbursements.</p><span class="arrow">→</span></a>
+</div>
+<footer>Chapter 17 — Governmental Entities &nbsp;·&nbsp; Built from in‑class lecture slides for student review.<br><span class="gold">GASB sets the rules; the fund makes them real.</span></footer>
+</body>
+</html>
